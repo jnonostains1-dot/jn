@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quizorama</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1>Quizorama</h1>
+      <p>Choisissez votre aventure de quiz !</p>
+    </header>
+
+    <main>
+      <section id="screen-categories" class="screen screen--active" aria-labelledby="title-categories">
+        <h2 id="title-categories">Sélectionner une catégorie</h2>
+        <div class="category-grid">
+          <button class="category-card" data-category="culture">Culture générale</button>
+          <button class="category-card" data-category="sport">Sport</button>
+          <button class="category-card" data-category="insolite">Insolite</button>
+          <button class="category-card" data-category="maman">Maman</button>
+        </div>
+        <div class="option-panel">
+          <div class="option-block">
+            <h3>Nombre de questions</h3>
+            <div class="pill-group" data-setting="count">
+              <button class="pill is-active" data-value="5">5</button>
+              <button class="pill" data-value="10">10</button>
+              <button class="pill" data-value="15">15</button>
+            </div>
+          </div>
+          <div class="option-block">
+            <h3>Difficulté</h3>
+            <div class="pill-group" data-setting="difficulty">
+              <button class="pill is-active" data-value="Facile">Facile</button>
+              <button class="pill" data-value="Moyen">Moyen</button>
+              <button class="pill" data-value="Difficile">Difficile</button>
+              <button class="pill" data-value="Mix">Mix</button>
+            </div>
+          </div>
+          <div class="option-block">
+            <h3>Mode</h3>
+            <div class="pill-group" data-setting="mode">
+              <button class="pill is-active" data-value="Classique">Classique</button>
+              <button class="pill" data-value="Chrono">Chrono (15 s)</button>
+            </div>
+          </div>
+        </div>
+        <button id="start-quiz" class="primary" disabled>Commencer le quiz</button>
+        <p class="hint">Sélectionnez une catégorie pour commencer.</p>
+      </section>
+
+      <section id="screen-quiz" class="screen" aria-labelledby="title-quiz">
+        <div class="quiz-header">
+          <div>
+            <h2 id="title-quiz">Question en cours</h2>
+            <p id="quiz-meta">Catégorie : <span id="meta-category"></span> • Difficulté : <span id="meta-difficulty"></span></p>
+          </div>
+          <div class="score-panel">
+            <p>Progression</p>
+            <strong id="progression">1/10</strong>
+          </div>
+          <div class="score-panel">
+            <p>Score</p>
+            <strong id="score">0</strong>
+          </div>
+          <div id="timer-panel" class="score-panel timer hidden">
+            <p>Chrono</p>
+            <strong id="timer">15</strong>
+          </div>
+        </div>
+        <div class="question-card">
+          <p id="question-text">Question</p>
+          <div id="answers" class="answers"></div>
+        </div>
+      </section>
+
+      <section id="screen-explanation" class="screen" aria-labelledby="title-explanation">
+        <h2 id="title-explanation">Explication</h2>
+        <div class="explanation-card">
+          <p id="explanation-text">Anecdote</p>
+        </div>
+        <button id="next-question" class="primary">Question suivante</button>
+      </section>
+
+      <section id="screen-results" class="screen" aria-labelledby="title-results">
+        <h2 id="title-results">Résultats</h2>
+        <div class="results-card">
+          <p id="final-score">Score final : 0/0</p>
+          <p id="best-score">Meilleur score : 0</p>
+        </div>
+        <div class="results-actions">
+          <button id="replay" class="primary">Rejouer</button>
+          <button id="change-category" class="secondary">Changer de catégorie</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
